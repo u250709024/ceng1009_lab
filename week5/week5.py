@@ -36,34 +36,31 @@ def turtle_star():
         trt.forward(100)
         trt.right(144)
 
+
 #Use the drawsquare function we wrote in this chapter in a program to draw the image shown below. Assume each side is 20 units. (Hint: notice that the turtle has already moved away from the ending point of the last square when the program ends.)
+
+def draw_square(edge,x,y):
+    trt.penup()
+    trt.goto(x, y)
+    trt.pendown()
+    for j in range(4):
+        trt.forward(edge)
+        trt.right(90)
 
 def turtle_squares1():
     for i in range(1,6):
-        for j in range(4):
-            trt.forward(20)
-            trt.right(90)
-        trt.penup()
-        trt.goto((i*40),0)
-        print(i*40)
-        trt.pendown()
+        draw_square(20,40*i,0)
 
 #Write a program to draw this. Assume the innermost square is 20 units per side, and each successive square is 20 units bigger, per side, than the one inside it.
 
 def turtle_squares2():
     for i in range(1,6):
-        for j in range(4):
-            trt.forward(20*i)
-            trt.right(90)
-
-        trt.penup()
-        trt.goto(-(i*10),(i*10))
-        trt.pendown()
+        draw_square(20*i,-10*i,10*i)
 
 
 #Son üç soruyu buradan istediğinizin commentini açarak başlatabilirsiniz
 #turtle_star()
 #turtle_squares1()
-#turtle_squares2()
+turtle_squares2()
 
 scr.exitonclick()
